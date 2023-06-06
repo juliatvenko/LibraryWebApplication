@@ -1,0 +1,54 @@
+hhtml {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.action-buttons {
+    margin-top: -20px;
+}
+
+.book-item {
+    margin-top: 40px;
+}
+
+
+.news-container {
+    width: 80%;
+    margin: auto;
+}
+
+.news-item {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.news-header {
+    display: flex;
+    align-items: center;
+}
+
+.news-date {
+    font-size: 1.1em;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.news-title {
+    font-size: 1.5em;
+    font-weight: bold;
+}

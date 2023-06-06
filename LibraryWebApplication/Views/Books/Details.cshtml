@@ -1,0 +1,55 @@
+﻿@model LibraryWebApplication.Models.Book
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <hr />
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="@Url.Content("~/" + Model.coverImagePath)" alt="Model.title" width="300" height="450" />
+        </div>
+        <div class="col-sm-8">
+            <dl class="row">
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.title)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.title)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.author)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.author)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.publishedYear)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.publishedYear)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.isAvailable)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.isAvailable)
+                </dd>
+                <dt class="col-sm-4">
+                    @Html.DisplayNameFor(model => model.Category.categoryName)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Category.categoryName)
+                </dd>
+            </dl>
+
+            <div>
+                <a asp-action="Edit" asp-route-id="@Model?.bookID">Edit</a> |
+                <a asp-action="Index">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>

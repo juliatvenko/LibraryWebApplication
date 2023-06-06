@@ -1,0 +1,62 @@
+﻿@model IEnumerable<LibraryWebApplication.Models.ReaderCard>
+
+@{
+    ViewData["Title"] = "View";
+}
+
+
+<h2>Reader Card</h2>
+
+
+@if (ViewBag.NoBorrowedBooksMessage != null)
+{
+    <p>@ViewBag.NoBorrowedBooksMessage</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Book.title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Book.author)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.borrowDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.returnDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.isBorrowed)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Book.title)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Book.author)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.borrowDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.returnDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.isBorrowed)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+}
+

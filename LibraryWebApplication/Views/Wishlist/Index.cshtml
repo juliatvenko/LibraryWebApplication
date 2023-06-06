@@ -1,0 +1,34 @@
+﻿@model LibraryWebApplication.Models.WishlistViewModel
+
+@{
+    ViewBag.Title = "Wishlist";
+}
+
+<h2>Wishlist</h2>
+
+
+@if (ViewBag.WishlistEmptyMessage != null)
+{
+    <p>@ViewBag.WishlistEmptyMessage</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var book in Model.Books)
+            {
+                <tr>
+                    <td>@book.title</td>
+                    <td>@book.author</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
