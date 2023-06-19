@@ -4,28 +4,32 @@
 
 <form method="post">
     <div class="form-group">
-        <label for="firstName">First Name</label>
-        <input asp-for="FirstName" class="form-control" />
+        <label for="firstName">First name</label>
+        <input asp-for="FirstName" class="form-control" style="width: 25%;" />
     </div>
     <div class="form-group">
-        <label for="lastName">Last Name</label>
-        <input asp-for="LastName" class="form-control" />
+        <label for="lastName">Last name</label>
+        <input asp-for="LastName" class="form-control" style="width: 25%;" />
     </div>
     <div class="form-group">
-        <label for="phoneNumber">Phone Number</label>
-        <input asp-for="PhoneNumber" class="form-control" />
+        <label for="phoneNumber">Phone number</label>
+        <input asp-for="PhoneNumber" class="form-control" style="width: 25%;" />
     </div>
     <div class="form-group">
         <label for="email">Email</label>
-        <input asp-for="Email" class="form-control" />
+        <input asp-for="Email" class="form-control" style="width: 25%;" />
     </div>
     <div class="form-group">
-        <label for="oldPassword">Old Password</label>
-        <input asp-for="OldPassword" class="form-control" />
+        <label for="oldPassword">Old password</label>
+        <input asp-for="OldPassword" class="form-control" style="width: 25%;" />
+        @if (!string.IsNullOrEmpty(ViewBag.PasswordMismatch))
+        {
+            <p class="text-danger">@ViewBag.PasswordMismatch</p>
+        }
     </div>
     <div class="form-group">
-        <label for="newPassword">New Password</label>
-        <input asp-for="NewPassword" class="form-control" />
+        <label for="newPassword">New password</label>
+        <input asp-for="NewPassword" class="form-control" style="width: 25%;" />
     </div>
     <button type="submit" class="btn btn-primary">Save Changes</button>
 </form>

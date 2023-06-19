@@ -26,6 +26,11 @@ else
                 <tr>
                     <td>@book.title</td>
                     <td>@book.author</td>
+                    <td>
+                        <form method="post" asp-action="DeleteFromWishlist" asp-controller="Wishlist" asp-route-id="@book.bookID">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
                 </tr>
             }
         </tbody>

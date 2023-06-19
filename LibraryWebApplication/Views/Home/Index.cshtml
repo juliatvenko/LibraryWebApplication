@@ -1,7 +1,8 @@
-﻿@model LibraryWebApplication.Controllers.HomeController.HomeNewsViewModel
+﻿@model IEnumerable<LibraryWebApplication.Models.News>
+
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Index";
 }
 
 <head>
@@ -22,15 +23,15 @@
         if (role == 2) // Administrator
         {
             <div class="add-news-button">
-                <a asp-action="Create" class="btn btn-primary">
+                <a asp-action="Create" asp-controller="News" class="btn btn-primary">
                     <i class="fas fa-plus"></i> Add News
                 </a>
             </div>
-            
+
         }
     }
-       
-    @foreach (var news in Model.News)
+
+    @foreach (var news in Model)
     {
         <div class="news-item">
             <div class="news-header">
@@ -42,13 +43,13 @@
                         int? role = Context.Session.GetInt32("userRole");
                         if (role == 2) // Administrator
                         {
-                            <a asp-action="Edit" asp-route-id="@news.newsID" class="btn btn-default">
+                            <a asp-action="Edit" asp-controller="News" asp-route-id="@news.newsID" class="btn btn-default">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a asp-action="Delete" asp-route-id="@news.newsID" class="btn btn-default">
+                            <a asp-action="Delete" asp-controller="News" asp-route-id="@news.newsID" class="btn btn-default">
                                 <i class="fas fa-trash"></i>
                             </a>
-                        }                                
+                        }
                     }
                 </span>
             </div>
@@ -56,4 +57,5 @@
         </div>
     }
 </div>
+
 

@@ -1,17 +1,21 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace LibraryWebApplication.Models
 {
     public class RegisterViewModel
     {
         [Required]
+        [DisplayName("First name")]
         public string FirstName { get; set; }
 
         [Required]
+        [DisplayName("Last name")]
         public string LastName { get; set; }
 
         [Required]
         [Phone]
+        [DisplayName("Phone number")]
         public string PhoneNumber { get; set; }
 
         [Required]
@@ -26,6 +30,7 @@ namespace LibraryWebApplication.Models
 
         [DataType(DataType.Password)]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [DisplayName("Confirm password")]
         public string ConfirmPassword { get; set; }
     }
 }

@@ -24,6 +24,7 @@ namespace LibraryWebApplication.Data
 
         public DbSet<LibraryWebApplication.Models.User> Users { get; set; }
         public DbSet<ReaderCard> ReaderCards { get; set; }
+        public DbSet<Wishlist> Wishlist { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

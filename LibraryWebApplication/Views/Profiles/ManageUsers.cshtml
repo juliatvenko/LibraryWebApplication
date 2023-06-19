@@ -16,7 +16,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Email)
             </th>
-            <th></th>
+            <th style="width:120px">
+                @Html.DisplayNameFor(model => model.isBlocked)
+            </th>
         </tr>
     </thead>
     <tbody>
@@ -36,8 +38,11 @@
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
                 <td>
-                    <a asp-action="ChangeBlockStatus" asp-route-id="@item.userID">Block</a> |
-                    <a asp-action="Delete" asp-route-id="@item.userID">Remove</a>
+                    @Html.DisplayFor(modelItem => item.isBlocked)
+                </td>
+                <td>
+                    <a asp-action="ChangeBlockStatus" asp-route-id="@item.userID" class="btn btn-primary mr-2">@(item.isBlocked ? "Unblock" : "Block")</a> 
+                    <a asp-action="Delete" asp-route-id="@item.userID" class="btn btn-danger">Remove</a>
                 </td>
             </tr>
         }

@@ -166,7 +166,7 @@ namespace LibraryWebApplication.Controllers
             if (!string.IsNullOrWhiteSpace(model.OldPassword) &&
                 model.OldPassword != user.Password)
             {
-                ModelState.AddModelError("", "Invalid old password.");
+                ViewBag.PasswordMismatch = "Invalid old password";
                 return View(model);
             }
 

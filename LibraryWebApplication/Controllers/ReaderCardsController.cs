@@ -21,7 +21,7 @@ namespace LibraryWebApplication.Controllers
 
             var borrowedBooks = await _context.ReaderCards
                 .Include(rc => rc.Book)
-                .Where(rc => rc.userID == userId && rc.isBorrowed == false)
+                .Where(rc => rc.userID == userId)
             .ToListAsync();
 
             if (borrowedBooks.Count == 0)

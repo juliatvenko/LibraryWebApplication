@@ -2,6 +2,7 @@
 using LibraryWebApplication.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Net;
 using System.Security.Claims;
 
 namespace LibraryWebApplication.Controllers
@@ -86,6 +87,36 @@ namespace LibraryWebApplication.Controllers
             // Redirect to the wishlist view
             return RedirectToAction("Index", "Books");
         }
+
+       
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteFromWishlist(int id)
+        {
+            // Get the logged-in user's ID
+            var userId = HttpContext.Session.GetInt32("userId");
+
+            // Retrieve the wishlist item from database
+            var wishlistItem = await _context.Wishlist
+                .Where(w => w.userID == userId && w.bookID == id)
+                .FirstOrDefaultAsync();
+
+            // If the item does not exist, return appropriate response
+            if (wishlistItem == null)
+            {
+                return NotFound();
+            }
+
+            // Remove the wishlist item
+            _context.Wishlist.Remove(wishlistItem);
+
+            // Save changes
+            await _context.SaveChangesAsync();
+
+            // Redirect to the wishlist view
+            return RedirectToAction("Index", "Wishlist");
+        }
+
 
     }
 }

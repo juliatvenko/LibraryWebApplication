@@ -7,43 +7,33 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using LibraryWebApplication.Data;
 using LibraryWebApplication.Models;
+using LibraryWebApplication.Services;
 
 namespace LibraryWebApplication.Controllers
 {
     public class NewsController : Controller
     {
         private readonly LibraryWebApplicationContext _context;
+        private readonly VisitCounterService _visitCounterService;
 
-        public NewsController(LibraryWebApplicationContext context)
+        public NewsController(LibraryWebApplicationContext context, VisitCounterService visitCounterService)
         {
             _context = context;
+            _visitCounterService = visitCounterService;
         }
 
         // GET: News
         public async Task<IActionResult> Index()
         {
-              return _context.News != null ? 
+            int visitCount = _visitCounterService.VisitCount;
+            ViewData["VisitCount"] = visitCount;
+
+            return _context.News != null ? 
                           View(await _context.News.ToListAsync()) :
                           Problem("Entity set 'LibraryWebApplicationContext.News'  is null.");
         }
 
-        // GET: News/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null || _context.News == null)
-            {
-                return NotFound();
-            }
-
-            var news = await _context.News
-                .FirstOrDefaultAsync(m => m.newsID == id);
-            if (news == null)
-            {
-                return NotFound();
-            }
-
-            return View(news);
-        }
+   
 
         // GET: News/Create
         public IActionResult Create()

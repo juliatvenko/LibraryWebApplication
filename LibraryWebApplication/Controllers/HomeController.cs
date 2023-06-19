@@ -20,23 +20,10 @@ namespace LibraryWebApplication.Controllers
             _visitCounterService = visitCounterService;
         }
 
-        public class HomeNewsViewModel
-        {
-            public IEnumerable<News> News { get; set; }
-            // Add more properties as needed for other data you want to pass to the view
-        }
-
         public async Task<IActionResult> Index()
         {
-            int visitCount = _visitCounterService.VisitCount;
-            ViewData["VisitCount"] = visitCount;
 
-            var viewModel = new HomeNewsViewModel
-            {
-                News = await _context.News.ToListAsync(),
-            };
-
-            return View(viewModel);
+            return RedirectToAction("Index", "News"); 
         }
 
         public IActionResult Privacy()

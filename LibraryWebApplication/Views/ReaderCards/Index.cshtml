@@ -45,10 +45,10 @@ else
                         @Html.DisplayFor(modelItem => item.Book.author)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.borrowDate)
+                        @item.borrowDate.ToString("d")
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.returnDate)
+                        @item.returnDate.ToString("d")
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.isBorrowed)

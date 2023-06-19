@@ -105,7 +105,7 @@ namespace LibraryWebApplication.Controllers
 
             if (book.coverImagePath == null)
             {
-                ViewBag.Message = "The coverImagePath field is required.";
+                ViewBag.Message = "The cover image is required.";
                 return View(book);
             }
 
