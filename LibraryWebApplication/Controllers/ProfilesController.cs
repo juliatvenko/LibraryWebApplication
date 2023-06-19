@@ -36,7 +36,6 @@ namespace LibraryWebApplication.Controllers
                     lastName = model.LastName,
                     phoneNumber = model.PhoneNumber,
                     roleID = 1
-                    // You can set the role here or use a default role, etc.
                 };
 
                 _context.Users.Add(newUser);
