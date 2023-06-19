@@ -18,8 +18,8 @@ This is a web application for a library support system that allows users to lend
 
 *Books Management Form*: Administrators can manage books by viewing, adding, editing, and deleting them.
 
-### Library Support Team
-*Orders and Return Accepts Form*: Library support team members can manage book orders and accept returns.
+## Logging 
+To log in as an admin, you may use the account username:admin.one@example.com; password: adm1n123.
 
 ### Database Integration
 All information from the application is stored in a database.
